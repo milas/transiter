@@ -56,3 +56,7 @@ require (
 	golang.org/x/text v0.9.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
+
+replace github.com/jamespfennell/gtfs => github.com/milas/gtfs-go v0.0.0-20250531194311-3306bf8cb3c3
+
+//replace github.com/jamespfennell/gtfs => ../gtfs-go

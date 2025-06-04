@@ -56,6 +56,7 @@ func GetTrip(ctx context.Context, r *Context, req *api.GetTripRequest) (*api.Tri
 		ID:              trip.ID,
 		RoutePk:         trip.RoutePk,
 		DirectionID:     trip.DirectionID,
+		Headsign:        trip.Headsign,
 		StartedAt:       trip.StartedAt,
 		GtfsHash:        trip.GtfsHash,
 		FeedPk:          trip.FeedPk,
@@ -90,6 +91,7 @@ func buildApiTrips(ctx context.Context, r *Context, system *db.System, route *db
 		reply := &api.Trip{
 			Id:          trip.ID,
 			DirectionId: trip.DirectionID.Bool,
+			Headsign:    convert.SQLNullString(trip.Headsign),
 			StartedAt:   convert.SQLNullTime(trip.StartedAt),
 			Route:       r.Reference.Route(route.ID, system.ID, route.Color),
 			Shape:       nullShapeReference(r, trip.ShapeID, system.ID),
@@ -100,6 +102,7 @@ func buildApiTrips(ctx context.Context, r *Context, system *db.System, route *db
 		}
 		for _, stopTime := range stopTimes {
 			reply.StopTimes = append(reply.StopTimes, &api.StopTime{
+				Headsign:     convert.SQLNullString(stopTime.Headsign),
 				StopSequence: stopTime.StopSequence,
 				Track:        convert.SQLNullString(stopTime.Track),
 				Future:       !stopTime.Past,

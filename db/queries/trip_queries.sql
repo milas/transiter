@@ -21,6 +21,7 @@ WITH shapes_for_scheduled_trips_in_system AS (
   WHERE shape.system_pk = sqlc.arg(system_pk)
 )
 SELECT trip.*,
+       scheduled_trip.headsign AS headsign,
        vehicle.id as vehicle_id,
        vehicle.location::geography as vehicle_location,
        vehicle.bearing as vehicle_bearing,
@@ -30,6 +31,7 @@ FROM trip
 LEFT JOIN vehicle ON trip.pk = vehicle.trip_pk
 LEFT JOIN shapes_for_scheduled_trips_in_system
      ON trip.id = shapes_for_scheduled_trips_in_system.trip_id
+LEFT JOIN scheduled_trip ON trip.id = scheduled_trip.id
 WHERE trip.route_pk = ANY(sqlc.arg(route_pks)::bigint[])
 ORDER BY trip.route_pk, trip.id;
 
@@ -48,6 +50,7 @@ WITH shapes_for_scheduled_trips_in_system AS (
   WHERE shape.system_pk = sqlc.arg(system_pk)
 )
 SELECT trip.*,
+       scheduled_trip.headsign as headsign,
        vehicle.id as vehicle_id,
        vehicle.location::geography as vehicle_location,
        vehicle.bearing as vehicle_bearing,
@@ -57,6 +60,7 @@ FROM trip
 LEFT JOIN vehicle ON trip.pk = vehicle.trip_pk
 LEFT JOIN shapes_for_scheduled_trips_in_system
      ON trip.id = shapes_for_scheduled_trips_in_system.trip_id
+LEFT JOIN scheduled_trip ON trip.id = scheduled_trip.id
 WHERE trip.id = sqlc.arg(trip_id)
     AND trip.route_pk = sqlc.arg(route_pk);
 

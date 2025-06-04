@@ -977,6 +977,8 @@ message Trip {
   // message](https://gtfs.org/realtime/feed-entities/service-alerts/#service-alerts).
   repeated Alert.Reference alerts = 9;
 
+  optional string headsign = 10;
+
   // Reference type for the trip resource.
   message Reference {
     // Same as the parent message.
@@ -997,6 +999,8 @@ message Trip {
     optional Vehicle.Reference vehicle = 5 [deprecated=true];
     // Same as the parent message.
     bool direction_id = 6;
+    // Same as the parent message.
+    optional string headsign = 7;
   }
 }
 

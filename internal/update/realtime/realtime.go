@@ -168,6 +168,7 @@ func updateTrips(ctx context.Context, updateCtx common.UpdateContext, trips []gt
 				RoutePk:     routePk,
 				FeedPk:      updateCtx.FeedPk,
 				DirectionID: convert.DirectionID(trip.ID.DirectionID),
+				//Headsign:    convert.NullString(trip),
 				//StartedAt:    trip.ID.StartDate, // TODO: also the start time?
 				GtfsHash: gtfsHash,
 			})
