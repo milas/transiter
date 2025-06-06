@@ -129,7 +129,6 @@ func main() {
 					}
 				},
 			},
-			{},
 			{
 				Name:      "delete",
 				Usage:     "delete a transit system",
