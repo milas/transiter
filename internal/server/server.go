@@ -4,6 +4,9 @@ package server
 import (
 	"context"
 	"fmt"
+	"github.com/jamespfennell/transiter/internal/gen/api/apiconnect"
+	"golang.org/x/net/http2"
+	"golang.org/x/net/http2/h2c"
 	"net"
 	"net/http"
 	"net/http/pprof"
@@ -48,9 +51,7 @@ func Run(ctx context.Context, args RunArgs) error {
 	var levelVar slog.LevelVar
 	levelVar.Set(args.LogLevel)
 
-	logger := slog.New(slog.HandlerOptions{
-		Level: &levelVar,
-	}.NewTextHandler(os.Stdout))
+	logger := slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: &levelVar}))
 	logger.InfoCtx(ctx, fmt.Sprintf("Transiter server v%s starting", version.Version()))
 	defer func() {
 		logger.InfoCtx(ctx, fmt.Sprintf("Transiter server v%s shutdown", version.Version()))
@@ -147,22 +148,20 @@ func Run(ctx context.Context, args RunArgs) error {
 	}
 
 	if args.PublicGrpcAddr != "-" {
-		grpcServer := grpc.NewServer()
+		mux := http.NewServeMux()
+		mux.Handle(apiconnect.NewPublicHandler(public.NewConnectWrapper(publicService)))
+		grpcServer := &http.Server{Addr: args.PublicGrpcAddr, Handler: h2c.NewHandler(mux, &http2.Server{})}
+
 		defer func() {
 			logger.InfoCtx(ctx, "public gRPC API shutdown triggered")
-			go grpcServer.GracefulStop()
+			go grpcServer.Shutdown(context.Background())
 		}()
-		api.RegisterPublicServer(grpcServer, publicService)
-		lis, err := net.Listen("tcp", args.PublicGrpcAddr)
-		if err != nil {
-			return fmt.Errorf("failed to launch public gRPC API: %w", err)
-		}
 		wg.Add(1)
 		go func() {
 			defer cancelFunc()
 			defer wg.Done()
 			logger.InfoCtx(ctx, fmt.Sprintf("public gRPC API listening on %s", args.PublicGrpcAddr))
-			_ = grpcServer.Serve(lis)
+			grpcServer.ListenAndServe()
 			logger.InfoCtx(ctx, "public gRPC API shutdown complete")
 		}()
 	}
