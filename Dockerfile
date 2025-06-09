@@ -2,7 +2,7 @@
 
 # (A) Prepare base & build the Go binary
 # Use the builder platform to cross-compile to the target platform.
-FROM --platform=${BUILDPLATFORM} golang:1.22-bookworm AS builder
+FROM --platform=${BUILDPLATFORM} golang:1.24-bookworm AS builder
 WORKDIR /transiter
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to "/usr/bin"
@@ -53,7 +53,7 @@ ENV GOARCH=${TARGETARCH}
 RUN --mount=type=cache,target=/root/.cache/go-build \
     --mount=type=cache,target=/go/pkg/mod \
     --mount=type=bind,source=.,target=/transiter \
-    EXTRA_LDFLAGS='-w' EXTRA_GOFLAGS='-trimpath -o /out/transiter' \
+    CGO_ENABLED=0 EXTRA_LDFLAGS='-w' EXTRA_GOFLAGS='-trimpath -o /out/transiter' \
     just build ${TRANSITER_VERSION}
 
 # (B) Build the documentation
@@ -73,6 +73,10 @@ RUN just docs
 # (C) Pull in the Caddy binary as a dependency (for the target platform).
 FROM caddy:2 AS caddy
 
+FROM gcr.io/distroless/static-debian12 AS minimal
+
+COPY --link --from=build /out/transiter /
+ENTRYPOINT ["/transiter"]
 
 # (D) Put it all together.
 # We use this buildpack image because it already has SSL certificates installed
