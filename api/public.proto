@@ -77,6 +77,7 @@ service Public {
   // Provides basic information about this Transiter instance and the transit systems it contains.
   rpc Entrypoint(EntrypointRequest) returns (EntrypointReply) {
     option (google.api.http) = {get: "/"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // List systems
@@ -86,6 +87,7 @@ service Public {
   // List all transit systems that are installed in this Transiter instance.
   rpc ListSystems(ListSystemsRequest) returns (ListSystemsReply) {
     option (google.api.http) = {get: "/systems"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // Get system
@@ -95,6 +97,7 @@ service Public {
   // Get a system by its ID.
   rpc GetSystem(GetSystemRequest) returns (System) {
     option (google.api.http) = {get: "/systems/{system_id}"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // List agencies
@@ -104,6 +107,7 @@ service Public {
   // List all agencies in a system.
   rpc ListAgencies(ListAgenciesRequest) returns (ListAgenciesReply) {
     option (google.api.http) = {get: "/systems/{system_id}/agencies"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // Get agency
@@ -113,6 +117,7 @@ service Public {
   // Get an agency in a system by its ID.
   rpc GetAgency(GetAgencyRequest) returns (Agency) {
     option (google.api.http) = {get: "/systems/{system_id}/agencies/{agency_id}"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // List stops
@@ -126,6 +131,7 @@ service Public {
   // To get more results, make the same request with the `first_id` field set to the value of `next_id` in the response.
   rpc ListStops(ListStopsRequest) returns (ListStopsReply) {
     option (google.api.http) = {get: "/systems/{system_id}/stops"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // Get stop
@@ -135,6 +141,7 @@ service Public {
   // Get a stop in a system by its ID.
   rpc GetStop(GetStopRequest) returns (Stop) {
     option (google.api.http) = {get: "/systems/{system_id}/stops/{stop_id}"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // List routes
@@ -144,6 +151,7 @@ service Public {
   // List all routes in a system.
   rpc ListRoutes(ListRoutesRequest) returns (ListRoutesReply) {
     option (google.api.http) = {get: "/systems/{system_id}/routes"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // Get route
@@ -153,6 +161,7 @@ service Public {
   // Get a route in a system by its ID.
   rpc GetRoute(GetRouteRequest) returns (Route) {
     option (google.api.http) = {get: "/systems/{system_id}/routes/{route_id}"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // List trips
@@ -162,6 +171,7 @@ service Public {
   // List all trips in a route.
   rpc ListTrips(ListTripsRequest) returns (ListTripsReply) {
     option (google.api.http) = {get: "/systems/{system_id}/routes/{route_id}/trips"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // Get trip
@@ -171,6 +181,7 @@ service Public {
   // Get a trip by its ID.
   rpc GetTrip(GetTripRequest) returns (Trip) {
     option (google.api.http) = {get: "/systems/{system_id}/routes/{route_id}/trips/{trip_id}"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // List alerts
@@ -182,6 +193,7 @@ service Public {
   //   (alerts which have an active period containing the current time) and non-active alerts.
   rpc ListAlerts(ListAlertsRequest) returns (ListAlertsReply) {
     option (google.api.http) = {get: "/systems/{system_id}/alerts"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // Get alert
@@ -191,6 +203,7 @@ service Public {
   // Get an alert by its ID.
   rpc GetAlert(GetAlertRequest) returns (Alert) {
     option (google.api.http) = {get: "/systems/{system_id}/alerts/{alert_id}"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // List transfers
@@ -200,6 +213,7 @@ service Public {
   // List all transfers in a system.
   rpc ListTransfers(ListTransfersRequest) returns (ListTransfersReply) {
     option (google.api.http) = {get: "/systems/{system_id}/transfers"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // Get transfer
@@ -209,6 +223,7 @@ service Public {
   // Get a transfer by its ID.
   rpc GetTransfer(GetTransferRequest) returns (Transfer) {
     option (google.api.http) = {get: "/systems/{system_id}/transfers/{transfer_id}"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // List feeds
@@ -218,6 +233,7 @@ service Public {
   // List all feeds for a system.
   rpc ListFeeds(ListFeedsRequest) returns (ListFeedsReply) {
     option (google.api.http) = {get: "/systems/{system_id}/feeds"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // Get feed
@@ -227,6 +243,7 @@ service Public {
   // Get a feed in a system by its ID.
   rpc GetFeed(GetFeedRequest) returns (Feed) {
     option (google.api.http) = {get: "/systems/{system_id}/feeds/{feed_id}"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // List vehicles
@@ -236,6 +253,7 @@ service Public {
   // List all feeds for a system.
   rpc ListVehicles(ListVehiclesRequest) returns (ListVehiclesReply) {
     option (google.api.http) = {get: "/systems/{system_id}/vehicles"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // Get vehicle
@@ -245,6 +263,7 @@ service Public {
   // Get a vehicle in a system by its ID.
   rpc GetVehicle(GetVehicleRequest) returns (Vehicle) {
     option (google.api.http) = {get: "/systems/{system_id}/vehicles/{vehicle_id}"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // List shapes
@@ -254,6 +273,7 @@ service Public {
   // List all shapes in a system.
   rpc ListShapes(ListShapesRequest) returns (ListShapesReply) {
     option (google.api.http) = {get: "/systems/{system_id}/shapes"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 
   // Get shape
@@ -263,6 +283,7 @@ service Public {
   // Get a shape in a system by its ID.
   rpc GetShape(GetShapeRequest) returns (Shape) {
     option (google.api.http) = {get: "/systems/{system_id}/shapes/{shape_id}"};
+    option idempotency_level = NO_SIDE_EFFECTS;
   }
 }
 

@@ -292,126 +292,147 @@ func NewPublicClient(httpClient connect.HTTPClient, baseURL string, opts ...conn
 			httpClient,
 			baseURL+PublicEntrypointProcedure,
 			connect.WithSchema(publicMethods.ByName("Entrypoint")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		listSystems: connect.NewClient[api.ListSystemsRequest, api.ListSystemsReply](
 			httpClient,
 			baseURL+PublicListSystemsProcedure,
 			connect.WithSchema(publicMethods.ByName("ListSystems")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		getSystem: connect.NewClient[api.GetSystemRequest, api.System](
 			httpClient,
 			baseURL+PublicGetSystemProcedure,
 			connect.WithSchema(publicMethods.ByName("GetSystem")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		listAgencies: connect.NewClient[api.ListAgenciesRequest, api.ListAgenciesReply](
 			httpClient,
 			baseURL+PublicListAgenciesProcedure,
 			connect.WithSchema(publicMethods.ByName("ListAgencies")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		getAgency: connect.NewClient[api.GetAgencyRequest, api.Agency](
 			httpClient,
 			baseURL+PublicGetAgencyProcedure,
 			connect.WithSchema(publicMethods.ByName("GetAgency")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		listStops: connect.NewClient[api.ListStopsRequest, api.ListStopsReply](
 			httpClient,
 			baseURL+PublicListStopsProcedure,
 			connect.WithSchema(publicMethods.ByName("ListStops")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		getStop: connect.NewClient[api.GetStopRequest, api.Stop](
 			httpClient,
 			baseURL+PublicGetStopProcedure,
 			connect.WithSchema(publicMethods.ByName("GetStop")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		listRoutes: connect.NewClient[api.ListRoutesRequest, api.ListRoutesReply](
 			httpClient,
 			baseURL+PublicListRoutesProcedure,
 			connect.WithSchema(publicMethods.ByName("ListRoutes")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		getRoute: connect.NewClient[api.GetRouteRequest, api.Route](
 			httpClient,
 			baseURL+PublicGetRouteProcedure,
 			connect.WithSchema(publicMethods.ByName("GetRoute")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		listTrips: connect.NewClient[api.ListTripsRequest, api.ListTripsReply](
 			httpClient,
 			baseURL+PublicListTripsProcedure,
 			connect.WithSchema(publicMethods.ByName("ListTrips")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		getTrip: connect.NewClient[api.GetTripRequest, api.Trip](
 			httpClient,
 			baseURL+PublicGetTripProcedure,
 			connect.WithSchema(publicMethods.ByName("GetTrip")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		listAlerts: connect.NewClient[api.ListAlertsRequest, api.ListAlertsReply](
 			httpClient,
 			baseURL+PublicListAlertsProcedure,
 			connect.WithSchema(publicMethods.ByName("ListAlerts")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		getAlert: connect.NewClient[api.GetAlertRequest, api.Alert](
 			httpClient,
 			baseURL+PublicGetAlertProcedure,
 			connect.WithSchema(publicMethods.ByName("GetAlert")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		listTransfers: connect.NewClient[api.ListTransfersRequest, api.ListTransfersReply](
 			httpClient,
 			baseURL+PublicListTransfersProcedure,
 			connect.WithSchema(publicMethods.ByName("ListTransfers")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		getTransfer: connect.NewClient[api.GetTransferRequest, api.Transfer](
 			httpClient,
 			baseURL+PublicGetTransferProcedure,
 			connect.WithSchema(publicMethods.ByName("GetTransfer")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		listFeeds: connect.NewClient[api.ListFeedsRequest, api.ListFeedsReply](
 			httpClient,
 			baseURL+PublicListFeedsProcedure,
 			connect.WithSchema(publicMethods.ByName("ListFeeds")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		getFeed: connect.NewClient[api.GetFeedRequest, api.Feed](
 			httpClient,
 			baseURL+PublicGetFeedProcedure,
 			connect.WithSchema(publicMethods.ByName("GetFeed")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		listVehicles: connect.NewClient[api.ListVehiclesRequest, api.ListVehiclesReply](
 			httpClient,
 			baseURL+PublicListVehiclesProcedure,
 			connect.WithSchema(publicMethods.ByName("ListVehicles")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		getVehicle: connect.NewClient[api.GetVehicleRequest, api.Vehicle](
 			httpClient,
 			baseURL+PublicGetVehicleProcedure,
 			connect.WithSchema(publicMethods.ByName("GetVehicle")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		listShapes: connect.NewClient[api.ListShapesRequest, api.ListShapesReply](
 			httpClient,
 			baseURL+PublicListShapesProcedure,
 			connect.WithSchema(publicMethods.ByName("ListShapes")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		getShape: connect.NewClient[api.GetShapeRequest, api.Shape](
 			httpClient,
 			baseURL+PublicGetShapeProcedure,
 			connect.WithSchema(publicMethods.ByName("GetShape")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 	}
@@ -695,126 +716,147 @@ func NewPublicHandler(svc PublicHandler, opts ...connect.HandlerOption) (string,
 		PublicEntrypointProcedure,
 		svc.Entrypoint,
 		connect.WithSchema(publicMethods.ByName("Entrypoint")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicListSystemsHandler := connect.NewUnaryHandler(
 		PublicListSystemsProcedure,
 		svc.ListSystems,
 		connect.WithSchema(publicMethods.ByName("ListSystems")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicGetSystemHandler := connect.NewUnaryHandler(
 		PublicGetSystemProcedure,
 		svc.GetSystem,
 		connect.WithSchema(publicMethods.ByName("GetSystem")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicListAgenciesHandler := connect.NewUnaryHandler(
 		PublicListAgenciesProcedure,
 		svc.ListAgencies,
 		connect.WithSchema(publicMethods.ByName("ListAgencies")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicGetAgencyHandler := connect.NewUnaryHandler(
 		PublicGetAgencyProcedure,
 		svc.GetAgency,
 		connect.WithSchema(publicMethods.ByName("GetAgency")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicListStopsHandler := connect.NewUnaryHandler(
 		PublicListStopsProcedure,
 		svc.ListStops,
 		connect.WithSchema(publicMethods.ByName("ListStops")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicGetStopHandler := connect.NewUnaryHandler(
 		PublicGetStopProcedure,
 		svc.GetStop,
 		connect.WithSchema(publicMethods.ByName("GetStop")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicListRoutesHandler := connect.NewUnaryHandler(
 		PublicListRoutesProcedure,
 		svc.ListRoutes,
 		connect.WithSchema(publicMethods.ByName("ListRoutes")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicGetRouteHandler := connect.NewUnaryHandler(
 		PublicGetRouteProcedure,
 		svc.GetRoute,
 		connect.WithSchema(publicMethods.ByName("GetRoute")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicListTripsHandler := connect.NewUnaryHandler(
 		PublicListTripsProcedure,
 		svc.ListTrips,
 		connect.WithSchema(publicMethods.ByName("ListTrips")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicGetTripHandler := connect.NewUnaryHandler(
 		PublicGetTripProcedure,
 		svc.GetTrip,
 		connect.WithSchema(publicMethods.ByName("GetTrip")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicListAlertsHandler := connect.NewUnaryHandler(
 		PublicListAlertsProcedure,
 		svc.ListAlerts,
 		connect.WithSchema(publicMethods.ByName("ListAlerts")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicGetAlertHandler := connect.NewUnaryHandler(
 		PublicGetAlertProcedure,
 		svc.GetAlert,
 		connect.WithSchema(publicMethods.ByName("GetAlert")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicListTransfersHandler := connect.NewUnaryHandler(
 		PublicListTransfersProcedure,
 		svc.ListTransfers,
 		connect.WithSchema(publicMethods.ByName("ListTransfers")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicGetTransferHandler := connect.NewUnaryHandler(
 		PublicGetTransferProcedure,
 		svc.GetTransfer,
 		connect.WithSchema(publicMethods.ByName("GetTransfer")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicListFeedsHandler := connect.NewUnaryHandler(
 		PublicListFeedsProcedure,
 		svc.ListFeeds,
 		connect.WithSchema(publicMethods.ByName("ListFeeds")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicGetFeedHandler := connect.NewUnaryHandler(
 		PublicGetFeedProcedure,
 		svc.GetFeed,
 		connect.WithSchema(publicMethods.ByName("GetFeed")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicListVehiclesHandler := connect.NewUnaryHandler(
 		PublicListVehiclesProcedure,
 		svc.ListVehicles,
 		connect.WithSchema(publicMethods.ByName("ListVehicles")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicGetVehicleHandler := connect.NewUnaryHandler(
 		PublicGetVehicleProcedure,
 		svc.GetVehicle,
 		connect.WithSchema(publicMethods.ByName("GetVehicle")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicListShapesHandler := connect.NewUnaryHandler(
 		PublicListShapesProcedure,
 		svc.ListShapes,
 		connect.WithSchema(publicMethods.ByName("ListShapes")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	publicGetShapeHandler := connect.NewUnaryHandler(
 		PublicGetShapeProcedure,
 		svc.GetShape,
 		connect.WithSchema(publicMethods.ByName("GetShape")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	return "/Public/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

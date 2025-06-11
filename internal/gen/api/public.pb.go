@@ -6283,35 +6283,35 @@ const file_api_public_proto_rawDesc = "" +
 	"\t_distance\x1aB\n" +
 	"\tReference\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12%\n" +
-	"\bresource\x18\x02 \x01(\v2\t.ResourceR\bresource2\xc2\x0e\n" +
-	"\x06Public\x12=\n" +
+	"\bresource\x18\x02 \x01(\v2\t.ResourceR\bresource2\x81\x0f\n" +
+	"\x06Public\x12@\n" +
 	"\n" +
-	"Entrypoint\x12\x12.EntrypointRequest\x1a\x10.EntrypointReply\"\t\x82\xd3\xe4\x93\x02\x03\x12\x01/\x12G\n" +
-	"\vListSystems\x12\x13.ListSystemsRequest\x1a\x11.ListSystemsReply\"\x10\x82\xd3\xe4\x93\x02\n" +
-	"\x12\b/systems\x12E\n" +
-	"\tGetSystem\x12\x11.GetSystemRequest\x1a\a.System\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/systems/{system_id}\x12_\n" +
-	"\fListAgencies\x12\x14.ListAgenciesRequest\x1a\x12.ListAgenciesReply\"%\x82\xd3\xe4\x93\x02\x1f\x12\x1d/systems/{system_id}/agencies\x12Z\n" +
-	"\tGetAgency\x12\x11.GetAgencyRequest\x1a\a.Agency\"1\x82\xd3\xe4\x93\x02+\x12)/systems/{system_id}/agencies/{agency_id}\x12S\n" +
-	"\tListStops\x12\x11.ListStopsRequest\x1a\x0f.ListStopsReply\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/systems/{system_id}/stops\x12O\n" +
-	"\aGetStop\x12\x0f.GetStopRequest\x1a\x05.Stop\",\x82\xd3\xe4\x93\x02&\x12$/systems/{system_id}/stops/{stop_id}\x12W\n" +
+	"Entrypoint\x12\x12.EntrypointRequest\x1a\x10.EntrypointReply\"\f\x82\xd3\xe4\x93\x02\x03\x12\x01/\x90\x02\x01\x12J\n" +
+	"\vListSystems\x12\x13.ListSystemsRequest\x1a\x11.ListSystemsReply\"\x13\x82\xd3\xe4\x93\x02\n" +
+	"\x12\b/systems\x90\x02\x01\x12H\n" +
+	"\tGetSystem\x12\x11.GetSystemRequest\x1a\a.System\"\x1f\x82\xd3\xe4\x93\x02\x16\x12\x14/systems/{system_id}\x90\x02\x01\x12b\n" +
+	"\fListAgencies\x12\x14.ListAgenciesRequest\x1a\x12.ListAgenciesReply\"(\x82\xd3\xe4\x93\x02\x1f\x12\x1d/systems/{system_id}/agencies\x90\x02\x01\x12]\n" +
+	"\tGetAgency\x12\x11.GetAgencyRequest\x1a\a.Agency\"4\x82\xd3\xe4\x93\x02+\x12)/systems/{system_id}/agencies/{agency_id}\x90\x02\x01\x12V\n" +
+	"\tListStops\x12\x11.ListStopsRequest\x1a\x0f.ListStopsReply\"%\x82\xd3\xe4\x93\x02\x1c\x12\x1a/systems/{system_id}/stops\x90\x02\x01\x12R\n" +
+	"\aGetStop\x12\x0f.GetStopRequest\x1a\x05.Stop\"/\x82\xd3\xe4\x93\x02&\x12$/systems/{system_id}/stops/{stop_id}\x90\x02\x01\x12Z\n" +
 	"\n" +
-	"ListRoutes\x12\x12.ListRoutesRequest\x1a\x10.ListRoutesReply\"#\x82\xd3\xe4\x93\x02\x1d\x12\x1b/systems/{system_id}/routes\x12T\n" +
-	"\bGetRoute\x12\x10.GetRouteRequest\x1a\x06.Route\".\x82\xd3\xe4\x93\x02(\x12&/systems/{system_id}/routes/{route_id}\x12e\n" +
-	"\tListTrips\x12\x11.ListTripsRequest\x1a\x0f.ListTripsReply\"4\x82\xd3\xe4\x93\x02.\x12,/systems/{system_id}/routes/{route_id}/trips\x12a\n" +
-	"\aGetTrip\x12\x0f.GetTripRequest\x1a\x05.Trip\">\x82\xd3\xe4\x93\x028\x126/systems/{system_id}/routes/{route_id}/trips/{trip_id}\x12W\n" +
+	"ListRoutes\x12\x12.ListRoutesRequest\x1a\x10.ListRoutesReply\"&\x82\xd3\xe4\x93\x02\x1d\x12\x1b/systems/{system_id}/routes\x90\x02\x01\x12W\n" +
+	"\bGetRoute\x12\x10.GetRouteRequest\x1a\x06.Route\"1\x82\xd3\xe4\x93\x02(\x12&/systems/{system_id}/routes/{route_id}\x90\x02\x01\x12h\n" +
+	"\tListTrips\x12\x11.ListTripsRequest\x1a\x0f.ListTripsReply\"7\x82\xd3\xe4\x93\x02.\x12,/systems/{system_id}/routes/{route_id}/trips\x90\x02\x01\x12d\n" +
+	"\aGetTrip\x12\x0f.GetTripRequest\x1a\x05.Trip\"A\x82\xd3\xe4\x93\x028\x126/systems/{system_id}/routes/{route_id}/trips/{trip_id}\x90\x02\x01\x12Z\n" +
 	"\n" +
-	"ListAlerts\x12\x12.ListAlertsRequest\x1a\x10.ListAlertsReply\"#\x82\xd3\xe4\x93\x02\x1d\x12\x1b/systems/{system_id}/alerts\x12T\n" +
-	"\bGetAlert\x12\x10.GetAlertRequest\x1a\x06.Alert\".\x82\xd3\xe4\x93\x02(\x12&/systems/{system_id}/alerts/{alert_id}\x12c\n" +
-	"\rListTransfers\x12\x15.ListTransfersRequest\x1a\x13.ListTransfersReply\"&\x82\xd3\xe4\x93\x02 \x12\x1e/systems/{system_id}/transfers\x12c\n" +
-	"\vGetTransfer\x12\x13.GetTransferRequest\x1a\t.Transfer\"4\x82\xd3\xe4\x93\x02.\x12,/systems/{system_id}/transfers/{transfer_id}\x12S\n" +
-	"\tListFeeds\x12\x11.ListFeedsRequest\x1a\x0f.ListFeedsReply\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/systems/{system_id}/feeds\x12O\n" +
-	"\aGetFeed\x12\x0f.GetFeedRequest\x1a\x05.Feed\",\x82\xd3\xe4\x93\x02&\x12$/systems/{system_id}/feeds/{feed_id}\x12_\n" +
-	"\fListVehicles\x12\x14.ListVehiclesRequest\x1a\x12.ListVehiclesReply\"%\x82\xd3\xe4\x93\x02\x1f\x12\x1d/systems/{system_id}/vehicles\x12^\n" +
+	"ListAlerts\x12\x12.ListAlertsRequest\x1a\x10.ListAlertsReply\"&\x82\xd3\xe4\x93\x02\x1d\x12\x1b/systems/{system_id}/alerts\x90\x02\x01\x12W\n" +
+	"\bGetAlert\x12\x10.GetAlertRequest\x1a\x06.Alert\"1\x82\xd3\xe4\x93\x02(\x12&/systems/{system_id}/alerts/{alert_id}\x90\x02\x01\x12f\n" +
+	"\rListTransfers\x12\x15.ListTransfersRequest\x1a\x13.ListTransfersReply\")\x82\xd3\xe4\x93\x02 \x12\x1e/systems/{system_id}/transfers\x90\x02\x01\x12f\n" +
+	"\vGetTransfer\x12\x13.GetTransferRequest\x1a\t.Transfer\"7\x82\xd3\xe4\x93\x02.\x12,/systems/{system_id}/transfers/{transfer_id}\x90\x02\x01\x12V\n" +
+	"\tListFeeds\x12\x11.ListFeedsRequest\x1a\x0f.ListFeedsReply\"%\x82\xd3\xe4\x93\x02\x1c\x12\x1a/systems/{system_id}/feeds\x90\x02\x01\x12R\n" +
+	"\aGetFeed\x12\x0f.GetFeedRequest\x1a\x05.Feed\"/\x82\xd3\xe4\x93\x02&\x12$/systems/{system_id}/feeds/{feed_id}\x90\x02\x01\x12b\n" +
+	"\fListVehicles\x12\x14.ListVehiclesRequest\x1a\x12.ListVehiclesReply\"(\x82\xd3\xe4\x93\x02\x1f\x12\x1d/systems/{system_id}/vehicles\x90\x02\x01\x12a\n" +
 	"\n" +
-	"GetVehicle\x12\x12.GetVehicleRequest\x1a\b.Vehicle\"2\x82\xd3\xe4\x93\x02,\x12*/systems/{system_id}/vehicles/{vehicle_id}\x12W\n" +
+	"GetVehicle\x12\x12.GetVehicleRequest\x1a\b.Vehicle\"5\x82\xd3\xe4\x93\x02,\x12*/systems/{system_id}/vehicles/{vehicle_id}\x90\x02\x01\x12Z\n" +
 	"\n" +
-	"ListShapes\x12\x12.ListShapesRequest\x1a\x10.ListShapesReply\"#\x82\xd3\xe4\x93\x02\x1d\x12\x1b/systems/{system_id}/shapes\x12T\n" +
-	"\bGetShape\x12\x10.GetShapeRequest\x1a\x06.Shape\".\x82\xd3\xe4\x93\x02(\x12&/systems/{system_id}/shapes/{shape_id}BDB\vPublicProtoP\x01Z3github.com/jamespfennell/transiter/internal/gen/apib\x06proto3"
+	"ListShapes\x12\x12.ListShapesRequest\x1a\x10.ListShapesReply\"&\x82\xd3\xe4\x93\x02\x1d\x12\x1b/systems/{system_id}/shapes\x90\x02\x01\x12W\n" +
+	"\bGetShape\x12\x10.GetShapeRequest\x1a\x06.Shape\"1\x82\xd3\xe4\x93\x02(\x12&/systems/{system_id}/shapes/{shape_id}\x90\x02\x01BDB\vPublicProtoP\x01Z3github.com/jamespfennell/transiter/internal/gen/apib\x06proto3"
 
 var (
 	file_api_public_proto_rawDescOnce sync.Once
