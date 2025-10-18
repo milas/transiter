@@ -2,7 +2,7 @@
 
 # (A) Prepare base & build the Go binary
 # Use the builder platform to cross-compile to the target platform.
-FROM --platform=${BUILDPLATFORM} golang:1.24-bookworm AS builder
+FROM --platform=${BUILDPLATFORM} golang:1.25.3-bookworm AS builder
 WORKDIR /transiter
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to "/usr/bin"
