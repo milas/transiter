@@ -24,7 +24,7 @@ plugins:
     out: internal/gen
     opt:
       - paths=source_relative
-  - local: /home/milas/go/bin/protoc-gen-doc
+  - local: protoc-gen-doc
     out: docs/src/api
     opt:
       - json,api_docs_gen_input.json

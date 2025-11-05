@@ -7,7 +7,7 @@ WORKDIR /transiter
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to "/usr/bin"
 
-FROM builder AS codegen
+FROM builder AS generate
 
 # (2) Next, we perform an optional step in which we re-generate all of the sqlc and
 # proto code and validate that it matches what's in source control.
@@ -33,12 +33,20 @@ RUN --mount=type=cache,target=/root/.cache/go-build \
 
 # (2.3) Diff the newly generated files with the ones in source control.
 # If there are differences, this will fail
-FROM codegen AS verify-codegen
+FROM generate AS verify-generate
 RUN --mount=type=bind,source=./internal/gen,target=/in \
     diff --recursive /in /out/internal/gen
 
 RUN --mount=type=bind,source=./docs/src/api,target=/in \
     diff --recursive /in /out/docs/src/api
+
+FROM scratch AS codegen-go
+
+COPY --link --from=generate /out/internal/gen /internal/gen
+
+FROM scratch AS codegen-docs
+
+COPY --link --from=generate /out/docs/src/api /docs/src/api
 
 FROM builder AS build
 
